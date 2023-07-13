@@ -1,0 +1,24 @@
+/* For Online CSS CDN */
+@import url();
+
+/* For Local style file */
+
+@import "bigSlider.css";
+@import "button.css";
+@import "card.css";
+@import "footer.css";
+@import "megaMenu.css";
+@import "navMenuDesktop.css";
+@import "navMenuMobile.css";
+@import "typo.css";
+@import "megaMenuMobile.css";
+@import "responsive.css";
+@import "megaMenuAll.css";
+@import "onboard.css";
+@import "common.css";
+@import "productDetails.css";
+@import "cartList.css";
+
+body{
+    background-color: #ffffff;
+}
