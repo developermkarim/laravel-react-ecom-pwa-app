@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import FooterDesktop from '../components/common/FooterDesktop';
+import FooterMobile from '../components/common/FooterMobile';
 import HomeTopMobile from '../components/common/HomeTopMobile';
 import NavMenuDesktop from '../components/common/NavMenuDesktop';
 import NavMenuMobile from '../components/common/NavMenuMobile';
@@ -29,6 +31,15 @@ class HomePage extends Component {
                 <Categories/>
                 <NewArrival/>
                 <Collection/>
+
+                <div className="Desktop">
+                <FooterDesktop/>
+                </div>
+
+                <div className="Mobile">
+                    <FooterMobile/>
+                </div>
+
             </div>
             </Fragment>
         );
