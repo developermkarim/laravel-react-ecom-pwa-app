@@ -9,6 +9,7 @@ import PurchasePage from '../pages/PurchasePage';
 import ProductDetailsPage from '../pages/ProductDetailsPage';
 import NotificationPage from '../pages/NotificationPage';
 import FavouritePage from '../pages/FavouritePage';
+import CartPage from '../pages/Cartpage';
 class AppRoutes extends Component {
     render() {
         return (
@@ -31,6 +32,8 @@ class AppRoutes extends Component {
                    <Route path='/notification' element={<NotificationPage/>}></Route>
 
                    <Route path='/favourite' element={<FavouritePage/>}></Route>
+
+                   <Route path='/cart' element={<CartPage/>}></Route>
 
                 </Routes>
         );
