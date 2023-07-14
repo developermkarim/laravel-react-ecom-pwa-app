@@ -6,6 +6,10 @@ import Google from '../../assets/images/google.png'
 
  class FooterMobile extends Component {
      render() {
+
+/*         let todate;
+        todate = new Date().getFullYear();
+        // todate.getFullYear() */;
           return (
                <Fragment>
                <div className="footerback m-0 mt-5 pt-3 shadow-sm"> 
@@ -32,7 +36,7 @@ import Google from '../../assets/images/google.png'
                   <a>
                     <Image className="mt-2" src={Apple}  />
                     </a><br></br>
-                    
+
                   </Col>
         
              </Row>
@@ -41,7 +45,7 @@ import Google from '../../assets/images/google.png'
      <Container fluid={true} className="text-center m-0 pt-3 pb-1 bg-dark">
                             <Container>
                                  <Row>
-               <h6 className="text-white">© Copyright 2021 by easy Shop, All Rights Reserved</h6>
+               <h6 className="text-white">© Copyright {new Date().getFullYear()} by  Mahmodul Karim, All Rights Reserved</h6>
                                  </Row>
                             </Container>
                        </Container> 

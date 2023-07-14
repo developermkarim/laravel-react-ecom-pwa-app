@@ -2,19 +2,19 @@ import React, { Component, Fragment } from 'react'
 import {Container,Row,Col,Card} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-class FeaturedProducts extends Component {
+class SuggestedProduct extends Component {
      render() {
           return (
-              <Fragment>
+               <Fragment>
                    <Container className="text-center" fluid={true}>
-          <div className="section-title text-center mb-55"><h2>FEATURED PRODUCT</h2>
+          <div className="section-title text-center mb-55"><h2>YOU MAY ALSO LIKE </h2>
           <p>Some Of Our Exclusive Collection, You May Like</p>
           </div>
 
 
      <Row>
      <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6}>
-          <Link to="/product-details">
+          <Link to="/productdetails">
      <Card className="image-box card">
           <img className="center" src="https://rukminim1.flixcart.com/image/416/416/kn7sdjk0/mobile/q/j/x/c21-rmx3201-realme-original-imagfxfwbszrxkvu.jpeg?q=70" />   
           <Card.Body> 
@@ -93,8 +93,8 @@ class FeaturedProducts extends Component {
                    </Container>
 
               </Fragment>
-          )
+          ) 
      }
 }
 
-export default FeaturedProducts
+export default SuggestedProduct
