@@ -91,8 +91,9 @@ class Notification extends Component {
 </Container>
 
 
-<Modal show={this.state.noticeShow} onHide={this.noticeHideHandler} >
-        <Modal.Header>
+<Modal show={this.state.noticeShow} onHide={this.noticeHideHandler}>
+         {/* <Modal.Header closeButton> */}
+        <Modal.Header closeButton>
            <h6><i className="fa fa-bell"></i> Date:11/05/2021</h6>
         </Modal.Header>
         <Modal.Body>
@@ -105,6 +106,7 @@ class Notification extends Component {
 
         </Modal.Body>
         <Modal.Footer>
+
           <Button variant="secondary" onClick={this.noticeHideHandler}>
             Close
           </Button>

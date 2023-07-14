@@ -10,8 +10,6 @@ class MegaMenuAll extends Component {
           this.MegaMenu();
      }
 
-
-
      MegaMenu(){
           var acc = document.getElementsByClassName("accordionAll");
           var accNum = acc.length;

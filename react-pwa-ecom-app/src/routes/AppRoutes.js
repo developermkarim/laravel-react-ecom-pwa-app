@@ -8,6 +8,7 @@ import RefundPage from '../pages/RefundPage';
 import PurchasePage from '../pages/PurchasePage';
 import ProductDetailsPage from '../pages/ProductDetailsPage';
 import NotificationPage from '../pages/NotificationPage';
+import FavouritePage from '../pages/FavouritePage';
 class AppRoutes extends Component {
     render() {
         return (
@@ -28,6 +29,8 @@ class AppRoutes extends Component {
                    <Route path='/product-details' element={<ProductDetailsPage/>}></Route>
 
                    <Route path='/notification' element={<NotificationPage/>}></Route>
+
+                   <Route path='/favourite' element={<FavouritePage/>}></Route>
 
                 </Routes>
         );

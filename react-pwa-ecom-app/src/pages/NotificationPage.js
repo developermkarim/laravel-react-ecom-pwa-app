@@ -8,7 +8,7 @@ import Notification from '../components/Notifications/Notification';
 import ProductDetails from '../components/ProductDetails/ProductDetails';
 import SuggestedProduct from '../components/ProductDetails/SuggestedProduct';
 
-export default class ContactPage extends Component {
+export default class NotificationPage extends Component {
 
     conponentDidMount(){
         window.scroll(0,0);

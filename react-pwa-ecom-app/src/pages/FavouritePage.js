@@ -3,10 +3,10 @@ import FooterDesktop from '../components/common/FooterDesktop';
 import FooterMobile from '../components/common/FooterMobile';
 import NavMenuDesktop from '../components/common/NavMenuDesktop';
 import NavMenuMobile from '../components/common/NavMenuMobile';
-import ProductDetails from '../components/ProductDetails/ProductDetails';
-import SuggestedProduct from '../components/ProductDetails/SuggestedProduct';
+import Favourite from '../components/Favourite/Favourite';
 
-export default class ProductDetailsPage extends Component {
+
+export default class FavouritePage extends Component {
 
     conponentDidMount(){
         window.scroll(0,0);
@@ -24,11 +24,8 @@ export default class ProductDetailsPage extends Component {
                 <NavMenuMobile/>
                 </div>
 
-
        
-              <ProductDetails/>
-
-              <SuggestedProduct/>
+                <Favourite/>
 
               
                 <div className="Desktop">

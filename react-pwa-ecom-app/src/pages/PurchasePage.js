@@ -5,7 +5,7 @@ import NavMenuDesktop from '../components/common/NavMenuDesktop';
 import NavMenuMobile from '../components/common/NavMenuMobile';
 import Purchase from '../components/others/Purchase';
 
-export default class ContactPage extends Component {
+export default class PurchasePage extends Component {
 
     conponentDidMount(){
         window.scroll(0,0);
