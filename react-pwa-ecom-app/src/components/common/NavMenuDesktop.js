@@ -3,7 +3,6 @@ import {Navbar,Container, Row, Col,Button} from 'react-bootstrap';
 import Logo from '../../assets/images/easyshop-logo.png';
 import {Link} from "react-router-dom";
  
-   
  class NavMenuDesktop extends Component {
      render() {
           return (
