@@ -9,11 +9,18 @@ import Collection from '../components/home/Collection';
 import FeaturedProducts from '../components/home/FeaturedProducts';
 import HomeTop from '../components/home/HomeTop';
 import NewArrival from '../components/home/NewArrival';
+import axios from 'axios';
+import AppURL from '../api/AppURL';
 
 class HomePage extends Component {
 
     componentDidMount(){
         window.scroll(0,0);
+        this.getVisitorDetails()
+    }
+
+    getVisitorDetails = ()=>{
+        axios.get(AppURL.GetVisitorURL).then().catch();
     }
     render() {
         return (

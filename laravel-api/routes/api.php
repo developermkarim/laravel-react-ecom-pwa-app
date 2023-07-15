@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\User\AuthController;
-use App\Http\Controllers\User\ForgetController;
-use App\Http\Controllers\User\ResetController;
-use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Admin\Contactcontroller;
+use App\Http\Controllers\Admin\VisitorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,24 +15,13 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+/* Visitor API */
 
- /////////////// 
-// User Login API Start
-  ////////////////////////
-  /* User Login Route */
-  Route::post('/login',[AuthController::class,'login']);
+Route::get('/getvisitor',[VisitorController::class,'GetVisitorDetails']);
+/* Contact API */
+Route::post('/getcontact',[Contactcontroller::class,'getContact']);
 
-  /* User Register Route */
-  Route::post('/register',[AuthController::class,'register']);
 
-   /* User Forget Password */
-   Route::post('/forget_password',[ForgetController::class,'forgetPassword']);
-
-/* User Password Reset */
-Route::post('/reset_password',[ResetController::class,'resetPassword']);
-
-Route::get('/user',[UserController::class,'user'])->middleware('auth:api');
-
-/* Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-}); */
+});

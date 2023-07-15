@@ -144,13 +144,7 @@ class Cart extends Component {
      </Col> 
 
 
-
-
-
-
-
-
-                   </Row>
+     </Row>
 
                </Container>
 
