@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Contactcontroller;
+use App\Http\Controllers\Admin\SiteInfoController;
 use App\Http\Controllers\Admin\VisitorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/getvisitor',[VisitorController::class,'GetVisitorDetails']);
 /* Contact API */
 Route::post('/getcontact',[Contactcontroller::class,'getContact']);
+
+/* Contact API */
+Route::get('/getsiteinfo',[SiteInfoController::class,'getSiteInfo']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
