@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Contactcontroller;
 use App\Http\Controllers\Admin\SiteInfoController;
 use App\Http\Controllers\Admin\VisitorController;
@@ -25,6 +26,8 @@ Route::post('/getcontact',[Contactcontroller::class,'getContact']);
 /* Contact API */
 Route::get('/getsiteinfo',[SiteInfoController::class,'getSiteInfo']);
 
+/* Category and SubCategory  */
+Route::get('/getcategory',[CategoryController::class,'getCategory']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
