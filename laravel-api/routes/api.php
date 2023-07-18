@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Contactcontroller;
+use App\Http\Controllers\Admin\ProductListController;
 use App\Http\Controllers\Admin\SiteInfoController;
 use App\Http\Controllers\Admin\VisitorController;
 use Illuminate\Http\Request;
@@ -28,6 +29,16 @@ Route::get('/getsiteinfo',[SiteInfoController::class,'getSiteInfo']);
 
 /* Category and SubCategory  */
 Route::get('/getcategory',[CategoryController::class,'getCategory']);
+
+/* ProductList Route Here */
+/* Important note that Here all Parameter  (that is bind {} ) can reqeust object properties such $request->remark  is {remark}  param with the belowing route */
+
+Route::get('/productlistbyremark/{remark}',[ProductListController::class,'productListByRemark']);
+
+Route::get('/productbycategory/{category}',[ProductListController::class,'productByCategory']);
+
+Route::get('/productbysubcategory/{category}/{subcategory}',[ProductListController::class,'productBySubCategory']);
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

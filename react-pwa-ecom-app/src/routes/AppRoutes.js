@@ -11,6 +11,8 @@ import NotificationPage from '../pages/NotificationPage';
 import FavouritePage from '../pages/FavouritePage';
 import CartPage from '../pages/Cartpage';
 import AboutPage from '../pages/AboutPage';
+// import ProductCategoryPage from '../pages/ProductCategoryPage-main';
+import ProductCategoryPages from '../pages/ProductsCategoryPages';
 class AppRoutes extends Component {
     render() {
         return (
@@ -32,7 +34,15 @@ class AppRoutes extends Component {
 
                    <Route path='/product-details' element={<ProductDetailsPage/>}></Route>
 
-                   <Route path='/notification' element={<NotificationPage/>}></Route>
+                    
+ 
+ {/*                 <Route path='/productbycategory/:category' element={<ProductCategoryPages />}/>  */}
+
+                 {/* <Route exact path="/productcategory/:category" render={(props) => <ProductCategoryPage {...props} key={Date.now()} /> } /> */}
+
+                <Route path='/productbycategory/:category' element={<ProductCategoryPages />}> </Route>
+
+                   <Route path='/notification'  element={<NotificationPage/>}></Route>
 
                    <Route path='/favourite' element={<FavouritePage/>}></Route>
 
