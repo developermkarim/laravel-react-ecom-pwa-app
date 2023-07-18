@@ -2,11 +2,14 @@ import axios from 'axios';
 import React, { Component, Fragment } from 'react'
 import { Card, Col, Container, Image, Row } from 'react-bootstrap';
 import AppURL from '../../api/AppURL';
+import CollectionLoading from '../PlaceHolder/CollectionLoading';
 export default class Collection extends Component {
   constructor(){
     super();
     this.state={
       collectionProducts:[],
+      loaderDiv:"",
+      mainDiv:"d-none"  
     }
   }
 
@@ -38,6 +41,10 @@ export default class Collection extends Component {
       )
     return (
         <Fragment>
+          
+          <CollectionLoading/>
+
+          <div className={this.state.mainDiv}>
         <Container className="text-center" fluid={true}>
 <div className="section-title text-center mb-55"><h2> PRODUCT COLLECTION</h2>
 <p>Some Of Our Exclusive Collection, You May Like</p>
@@ -60,6 +67,7 @@ export default class Collection extends Component {
 }
 </Row>
         </Container>
+        </div>
    </Fragment>
     )
   }

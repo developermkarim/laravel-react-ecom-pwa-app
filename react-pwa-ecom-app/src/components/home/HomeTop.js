@@ -4,6 +4,7 @@ import AppURL from '../../api/AppURL';
 import HomeSlider from './HomeSlider';
 import MegaMenu from './MegaMenu';
 import axios from 'axios';
+import SliderLoading from '../PlaceHolder/SliderLoading';
 export class HomeTop extends Component {
   constructor(){
     super();
@@ -19,7 +20,7 @@ export class HomeTop extends Component {
     axios.get(AppURL.GetCategory)
     .then((res)=>{
     let menuJson = res.data;
-    this.setState({menuData:menuJson})
+    this.setState({menuData:menuJson,loaderDiv:"d-none",mainDiv:""})
    
     })
 
@@ -32,7 +33,7 @@ export class HomeTop extends Component {
     axios.get(AppURL.getSlider)
     .then((res)=>{
     let sliderJson = res.data;
-    this.setState({homeSLiders:sliderJson})
+    this.setState({homeSLiders:sliderJson,loaderDiv:"d-none",mainDiv:""})
    
     })
 
@@ -45,6 +46,9 @@ export class HomeTop extends Component {
   render() {
     return (
         <Fragment>
+          <SliderLoading isLoading={this.state.loaderDiv} />
+
+          <div className={this.state.mainDiv}>
         <Container className="p-0 m-0 overflow-hidden" fluid={true}>
                          <Row>
                               <Col lg={3} md={3} sm={12}>
@@ -56,6 +60,7 @@ export class HomeTop extends Component {
                               </Col>
                          </Row>
                     </Container>
+                    </div>
                </Fragment>
     )
   }
