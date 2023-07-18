@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider1 from './../../assets/images/slider1.jpg';
 import Slider2 from './../../assets/images/slider2.jpg';
 import Slider3 from './../../assets/images/slider3.jpg';
+import { Image } from 'react-bootstrap';
 
 class HomeSlider extends Component {
     render() {
@@ -22,8 +23,8 @@ class HomeSlider extends Component {
               {
                 breakpoint: 1024,
                 settings: {
-                  slidesToShow: 3,
-                  slidesToScroll: 3,
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
                   infinite: true,
                   dots: true
                 }
@@ -45,18 +46,25 @@ class HomeSlider extends Component {
               }
             ]
           };
+
+          const allSliders = this.props.allSlider;
+          const mySLiders = allSliders.map(slider=>
+       
+            <div key={slider.id}>
+            <img className="slider-img" src={slider.slider_image} alt={slider.slider_text} />
+           </div>
+            
+            )
               return (
                 <div>
                  <Slider {...settings}>
-          <div>
-           <img className="slider-img" src={Slider1} />
-          </div>
-          <div>
-          <img className="slider-img" src={Slider2} />
-          </div>
-          <div>
-          <img className="slider-img" src={Slider3} />
-          </div>
+        
+          
+        
+                {
+                  mySLiders
+                }
+        
 
         </Slider>
              

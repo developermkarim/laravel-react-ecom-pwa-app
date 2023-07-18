@@ -9,6 +9,7 @@ export class HomeTop extends Component {
     super();
     this.state={
       menuData:[],
+      homeSLiders:[],
       loaderDiv:"",
       mainDiv:"d-none",
     }
@@ -25,6 +26,21 @@ export class HomeTop extends Component {
     .catch((error)=>{
 
     })
+
+    /* Hoem SLider Here */
+
+    axios.get(AppURL.getSlider)
+    .then((res)=>{
+    let sliderJson = res.data;
+    this.setState({homeSLiders:sliderJson})
+   
+    })
+
+    .catch((error)=>{
+
+    })
+
+
   }
   render() {
     return (
@@ -36,7 +52,7 @@ export class HomeTop extends Component {
                               </Col>
 
                               <Col lg={9} md={9} sm={12}>
-                              <HomeSlider />
+                              <HomeSlider allSlider={this.state.homeSLiders} />
                               </Col>
                          </Row>
                     </Container>

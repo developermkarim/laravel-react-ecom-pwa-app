@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import { Card, Col, Container, Image, Row } from 'react-bootstrap';
 
-export default class Category extends Component {
+export class Category extends Component {
 
   render() {
 
-    const category = this.props.categoryData;
-    const productbycategory = this.props.productData;
+    const category = this.props.cateParam;
+    const productbycategory = this.props.productByCategory;
 
     const CateByProducts = productbycategory.map((cate_pd)=>{
         
@@ -15,7 +15,7 @@ export default class Category extends Component {
         <Image className="center w-75" src={cate_pd.image} />   
         <Card.Body> 
         <p className="product-name-on-card">{cate_pd.title}</p>
-        <p className="product-price-on-card">Price : $ {cate_pd.special_price==='no' ? cate_pd.cate_pd:cate_pd.price }</p>
+        <p className="product-price-on-card">Price :  {cate_pd.special_price < cate_pd.price && <del className='text-dark'>${cate_pd.special_price}</del>}  $ {cate_pd.special_price==='no' ? cate_pd.cate_pd:cate_pd.price }</p>
         
         </Card.Body>
         </Card>          
@@ -43,3 +43,4 @@ export default class Category extends Component {
     )
   }
 }
+export default Category;

@@ -7,6 +7,7 @@ class AppURL extends Component {
     static PostContactURL = this.BaseURL + "/getcontact";
     static GetSiteInfo = this.BaseURL + '/getsiteinfo';
     static GetCategory = this.BaseURL + '/getcategory';
+    static getSlider = this.BaseURL + '/getslider';
 
     static productByRemark(remark){
         return `${this.BaseURL}/productlistbyremark/${remark}`;
@@ -15,6 +16,12 @@ class AppURL extends Component {
     static productByCategory(category){
         return this.BaseURL+"/productbycategory/"+category;
     }
+
+    static productBySubCategory(category,subcategory){
+
+        return `${this.BaseURL}/productbysubcategory/${category}/${subcategory}`;
+    }
+
 }
 
 export default AppURL;

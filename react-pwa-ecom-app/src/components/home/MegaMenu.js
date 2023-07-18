@@ -44,7 +44,7 @@ class MegaMenu extends Component {
                {
                     (Catlist.sub_category_name).map((subCatList,i)=>{
 
-                         return  <li><Link to={`productsubcategory/${Catlist.category_name}/${subCatList.sub_category_name}`}className="accordionItem" >{subCatList.sub_category_name}</Link></li>
+                         return  <li><Link to={`productbysubcategory/${Catlist.category_name}/${subCatList.sub_category_name}`}className="accordionItem" >{subCatList.sub_category_name}</Link></li>
 
                     })
                }
