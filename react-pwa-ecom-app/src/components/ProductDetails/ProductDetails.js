@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react'
 import { Container,Row,Col } from 'react-bootstrap'
 import AppURL from '../../api/AppURL'
 import FeaturedLoading from '../PlaceHolder/FeaturedLoading'
-
+import  ReactDOM  from 'react-dom';
 class ProductDetails extends Component {
 
      constructor(){
@@ -16,8 +16,15 @@ class ProductDetails extends Component {
      }
 
 
+      ImageOnClick=(event)=>{
+          let imgSrc = event.target.getAttribute('src');
+          let mainImage = document.getElementById('mainImage');
+          ReactDOM.findDOMNode(mainImage).setAttribute('src',imgSrc);
+       }
+
+
      componentDidMount(){
-          axios.get(AppURL.getProductDetails(this.props.getProductCode))
+          axios.get(`${this.BaseURL}/product-details/${this.props.getProductCode}`)
           .then(res=>{
                // console.log(res.data);
                this.setState({productsAll:res.data,loaderDiv:'d-none',mainDiv:''})
@@ -29,20 +36,23 @@ class ProductDetails extends Component {
 
              const ProductAllData = this.state.productsAll;
               const  {productDetails,productLists} = ProductAllData;
-            console.log(ProductAllData); // it outputs full data
-            console.log(productLists[0]['title']) // it outputs Cannot read properties of undefined (reading '0')
+               // const productList  = productLists?.[0];
+               console.log(productLists);
+            /* console.log(ProductAllData); */ // it outputs full data
+            // it outputs Cannot read properties of undefined (reading '0')
 
-            console.log(productLists[0].title) // it also outputs Cannot read properties of undefined (reading '0')
+            /* console.log(productLists[0].title) */ // it also outputs Cannot read properties of undefined (reading '0')
 
          
+           
       
 
           return (
                <Fragment>
               
-                  <div className={this.state.mainDiv}>
+                  <div /* className={this.state.mainDiv} */>
 
-                 <FeaturedLoading isLoading={this.state.loaderDiv}/>
+                 {/* <FeaturedLoading isLoading={this.state.loaderDiv}/> */}
 
                   <Container  className="BetweenTwoSection">
 
@@ -55,22 +65,22 @@ class ProductDetails extends Component {
 <Col className="shadow-sm bg-white pb-3 mt-4" md={12} lg={12} sm={12} xs={12}>
      <Row>
           <Col className="p-3" md={6} lg={6} sm={12} xs={12}>
-          <img className="w-100" src={''} />
+          <img id='mainImage'  className="w-100" src={'https://www.startech.com.bd/image/cache/catalog/laptop/hp-laptop/250-g8/250-g8-01-500x500.jpg'} />
           <Container  className="my-3">
                <Row>
                     <Col className="p-0 m-0"  md={3} lg={3} sm={3} xs={3}>
-                         <img className="w-100" src={''} />
+                         <img onClick={this.ImageOnClick} className="w-100" src={'https://rukminim1.flixcart.com/image/416/416/kn7sdjk0/mobile/q/j/x/c21-rmx3201-realme-original-imagfxfwbszrxkvu.jpeg?q=70'} />
                     </Col>
                     <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
-                         <img className="w-100" src={''} />
+                         <img onClick={this.ImageOnClick} className="w-100" src={'https://rukminim1.flixcart.com/image/416/416/kn7sdjk0/mobile/q/j/x/c21-rmx3201-realme-original-imagfxfwbszrxkvu.jpeg?q=70'} />
                     </Col>
                     <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
-                         <img className="w-100" src={''} />
+                         <img onClick={this.ImageOnClick} className="w-100" src={'https://rukminim1.flixcart.com/image/416/416/knm2s280/mobile/j/x/c/hot-10-play-x688b-infinix-original-imag29gxqzuxkmnk.jpeg?q=70'} />
                     </Col>
                     <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
-                         <img className="w-100" src={''} />
+                         <img onClick={this.ImageOnClick} className="w-100" src={'https://rukminim1.flixcart.com/image/416/416/kn7sdjk0/mobile/g/r/g/c21-rmx3201-realme-original-imagfxfwn9aryyda.jpeg?q=70'} />
                     </Col>
-               </Row>
+               </Row> 
           </Container>
           </Col>
           <Col className="p-3 " md={6} lg={6} sm={12} xs={12}>

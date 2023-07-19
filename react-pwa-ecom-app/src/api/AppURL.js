@@ -1,6 +1,4 @@
-import React, { Component } from 'react'
-
-class AppURL extends Component {
+class AppURL {
   
     static BaseURL = "http://127.0.0.1:8000/api";
     static GetVisitorURL = this.BaseURL + "/getvisitor";
