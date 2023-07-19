@@ -22,6 +22,10 @@ class AppURL extends Component {
         return `${this.BaseURL}/productbysubcategory/${category}/${subcategory}`;
     }
 
+    static getProductDetails(id){
+        return `${this.BaseURL}/product-details/${id}`;
+    }
+
 }
 
 export default AppURL;

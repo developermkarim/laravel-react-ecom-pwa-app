@@ -1,32 +1,74 @@
+import axios from 'axios'
 import React, { Component, Fragment } from 'react'
-import { Container,Row,Col, Form,Button } from 'react-bootstrap'
-import Product1 from '../../assets/images/product/product1.png'
-import Product2 from '../../assets/images/product/product2.png'
-import Product3 from '../../assets/images/product/product3.png'
-import Product4 from '../../assets/images/product/product4.png'
+import { Container,Row,Col } from 'react-bootstrap'
+import AppURL from '../../api/AppURL'
+import FeaturedLoading from '../PlaceHolder/FeaturedLoading'
+
 class ProductDetails extends Component {
-     render() {
+
+     constructor(){
+          super();
+          this.state={
+               productsAll:[],
+               loaderDiv:'',
+               mainDiv:'d-none',
+          }
+     }
+
+
+     componentDidMount(){
+          axios.get(AppURL.getProductDetails(this.props.getProductCode))
+          .then(res=>{
+               // console.log(res.data);
+               this.setState({productsAll:res.data,loaderDiv:'d-none',mainDiv:''})
+          })
+          .catch(err=>console.log(err));
+     }
+   
+     render(){
+
+             const ProductAllData = this.state.productsAll;
+              const  {productDetails,productLists} = ProductAllData;
+            console.log(ProductAllData); // it outputs full data
+            console.log(productLists[0]['title']) // it outputs Cannot read properties of undefined (reading '0')
+
+            console.log(productLists[0].title) // it also outputs Cannot read properties of undefined (reading '0')
+
+         
+      
+
           return (
                <Fragment>
-               <Container  className="BetweenTwoSection">
+              
+                  <div className={this.state.mainDiv}>
+
+                 <FeaturedLoading isLoading={this.state.loaderDiv}/>
+
+                  <Container  className="BetweenTwoSection">
+
+
+               {/*    <h1>{productLists[0].title}</h1>
+      <p>{productDetails[0].short_description}</p>
+      <img src={productDetails[0].image_one} alt="Product" /> */}
+
                    <Row className="p-2">
 <Col className="shadow-sm bg-white pb-3 mt-4" md={12} lg={12} sm={12} xs={12}>
      <Row>
           <Col className="p-3" md={6} lg={6} sm={12} xs={12}>
-          <img className="w-100" src={Product1} />
+          <img className="w-100" src={''} />
           <Container  className="my-3">
                <Row>
                     <Col className="p-0 m-0"  md={3} lg={3} sm={3} xs={3}>
-                         <img className="w-100" src={Product1} />
+                         <img className="w-100" src={''} />
                     </Col>
                     <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
-                         <img className="w-100" src={Product2} />
+                         <img className="w-100" src={''} />
                     </Col>
                     <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
-                         <img className="w-100" src={Product3} />
+                         <img className="w-100" src={''} />
                     </Col>
                     <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
-                         <img className="w-100" src={Product4} />
+                         <img className="w-100" src={''} />
                     </Col>
                </Row>
           </Container>
@@ -105,11 +147,12 @@ class ProductDetails extends Component {
 
 </Col>
                    </Row>
+              
                </Container>
-               
+                </div>
                </Fragment>
           )
      }
 }
+export default ProductDetails;
 
-export default ProductDetails

@@ -1,4 +1,8 @@
-import React, { Component } from 'react'
+import axios from 'axios';
+import React, { Component, useEffect } from 'react'
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import AppURL from '../api/AppURL';
 import FooterDesktop from '../components/common/FooterDesktop';
 import FooterMobile from '../components/common/FooterMobile';
 import NavMenuDesktop from '../components/common/NavMenuDesktop';
@@ -6,13 +10,11 @@ import NavMenuMobile from '../components/common/NavMenuMobile';
 import ProductDetails from '../components/ProductDetails/ProductDetails';
 import SuggestedProduct from '../components/ProductDetails/SuggestedProduct';
 
-export default class ProductDetailsPage extends Component {
+const ProductDetailsPage=()=> {
 
-    conponentDidMount(){
-        window.scroll(0,0);
-    }
+  const {code} = useParams();
 
-  render() {
+
     return (
         <>
       
@@ -26,7 +28,8 @@ export default class ProductDetailsPage extends Component {
 
 
        
-              <ProductDetails/>
+              <ProductDetails getProductCode={code}/>
+ 
 
               <SuggestedProduct/>
 
@@ -42,5 +45,7 @@ export default class ProductDetailsPage extends Component {
             </div>
       </>
     )
+
   }
-}
+
+export default ProductDetailsPage;

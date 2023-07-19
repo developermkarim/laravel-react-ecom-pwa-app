@@ -33,7 +33,7 @@ class AppRoutes extends Component {
 
                    <Route path='/purchase' element={<PurchasePage/>}></Route>
 
-                   <Route path='/product-details' element={<ProductDetailsPage/>}></Route>
+                   <Route path='/product-details/:code' element={<ProductDetailsPage/>}></Route>
 
                     
  
@@ -45,7 +45,7 @@ class AppRoutes extends Component {
 
                 <Route path='/productbysubcategory/:category/:subcategory' element={<ProductSubCategoryPage />}> </Route>
 
-                
+             {/*    <Route path='/getproductdetails/:code' element={<ProductDetailsPage/>}></Route> */}
 
                    <Route path='/notification'  element={<NotificationPage/>}></Route>
 
