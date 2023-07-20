@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component, Fragment } from 'react'
 import { Card, Col, Container, Image, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import AppURL from '../../api/AppURL';
 import CollectionLoading from '../PlaceHolder/CollectionLoading';
 export default class Collection extends Component {
@@ -27,7 +28,8 @@ export default class Collection extends Component {
 
     const myCollections = allCollection.map(collection=>
 
-      <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
+      <Col className="p-0" key={collection.id} xl={3} lg={3} md={3} sm={6} xs={6}>
+  <Link className="text-link" to={"/product-details/"+collection.id} >
 <Card className="image-box card w-100">
 <Image className="center w-75" src={collection.image} />   
 <Card.Body> 
@@ -35,7 +37,8 @@ export default class Collection extends Component {
 <p className="product-price-on-card">Price : $ {collection.special_price==='no' ? collection.collection:collection.price }</p>
 
 </Card.Body>
-</Card>          
+</Card>    
+</Link>      
 </Col>
 
       )

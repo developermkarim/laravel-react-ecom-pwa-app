@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Contactcontroller;
+use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\ProductDetailsController;
 use App\Http\Controllers\Admin\ProductListController;
 use App\Http\Controllers\Admin\SiteInfoController;
@@ -46,6 +47,9 @@ Route::get('/getslider',[SliderController::class,'getSlider']);
 
 /* ProductDetails Here */
 Route::get('/product-details/{id}',[ProductDetailsController::class,'getProductDetails']);
+
+/* Notification Here */
+Route::get('/notification',[NotificationController::class,'getNotification']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

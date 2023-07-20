@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Card, Col, Container, Image, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export class Category extends Component {
 
@@ -11,6 +12,7 @@ export class Category extends Component {
     const CateByProducts = productbycategory.map((cate_pd)=>{
         
     return  <Col className="p-0" key={cate_pd.id} xl={3} lg={3} md={3} sm={6} xs={6}>
+      <Link className="text-link" to={"/productdetails/"+cate_pd.id} >
         <Card className="image-box card w-100">
         <Image className="center w-75" src={cate_pd.image} />   
         <Card.Body> 
@@ -18,7 +20,8 @@ export class Category extends Component {
         <p className="product-price-on-card">Price :  {cate_pd.special_price < cate_pd.price && <del className='text-dark'>${cate_pd.special_price}</del>}  $ {cate_pd.special_price==='no' ? cate_pd.cate_pd:cate_pd.price }</p>
         
         </Card.Body>
-        </Card>          
+        </Card>     
+        </Link>     
         </Col>
   })
 

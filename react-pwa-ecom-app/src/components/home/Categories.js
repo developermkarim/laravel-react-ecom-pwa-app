@@ -23,7 +23,7 @@ class Categories extends Component {
      const allCategories = this.state.category;
      const categoryView  = allCategories.map(cate=>
           <Col className="p-0" key={cate.id} xl={3} lg={3} md={3} sm={6} xs={6}>
-          <Link to={`/productbycategory/${cate.category_name}`}>    
+          <Link className="text-link" to={`/productbycategory/${cate.category_name}`}>    
           <Card className="h-100 w-100 text-center">          
           <Card.Body> 
           <Image className="center" src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" />  

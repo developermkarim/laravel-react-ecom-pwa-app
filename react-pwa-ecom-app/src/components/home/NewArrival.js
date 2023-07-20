@@ -7,6 +7,7 @@ import axios from 'axios';
 import AppURL from '../../api/AppURL';
 import { toast } from 'react-toastify';
 import NewArrivalLoading from '../PlaceHolder/NewArrivalLoading';
+import { Link } from 'react-router-dom';
 
 export default class NewArrival extends Component {
     constructor(props){
@@ -78,7 +79,8 @@ export default class NewArrival extends Component {
 
       const allNewArrivals = this.state.NewArrivals;
       const myNewArrivals = allNewArrivals.map(newArrival=>
-        <div>
+        <div key={newArrival.id}>
+          <Link className="text-link" to={"/product-details/"+newArrival.id} >
         <Card className="image-box card">
         <Image className="center" src={newArrival.image} />   
         <Card.Body> 
@@ -87,7 +89,9 @@ export default class NewArrival extends Component {
 
         </Card.Body>
         </Card>
+        </Link>
         </div>
+
         )
     return (
       <Fragment>

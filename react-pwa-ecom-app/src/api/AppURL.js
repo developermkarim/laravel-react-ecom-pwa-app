@@ -6,7 +6,7 @@ class AppURL {
     static GetSiteInfo = this.BaseURL + '/getsiteinfo';
     static GetCategory = this.BaseURL + '/getcategory';
     static getSlider = this.BaseURL + '/getslider';
-
+    static NotificationHistory = this.BaseURL+"/notification";
     static productByRemark(remark){
         return `${this.BaseURL}/productlistbyremark/${remark}`;
     }

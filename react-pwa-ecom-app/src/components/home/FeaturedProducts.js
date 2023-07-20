@@ -31,7 +31,7 @@ class FeaturedProducts extends Component {
           console.log(productsAll);
           const productsView = productsAll.map((pd)=> 
            <Col className="p-1" key={pd.id} xl={2} lg={2} md={2} sm={4} xs={6}>
-               <Link to={'/product-details/'+pd.id}>
+               <Link className="text-link" to={'/product-details/'+pd.id}>
           <Card className="image-box card">
                <Image className="center" src={pd.image} />   
                <Card.Body> 

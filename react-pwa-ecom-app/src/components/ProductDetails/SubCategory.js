@@ -1,11 +1,13 @@
 import React, { Fragment } from 'react'
 import { Card, Col, Container, Image, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const SubCategory = ({category,subCategory,subCateProducts}) => {
 
 const mySubCateProducts = subCateProducts.map(subCate_pd =>
 
      <Col className="p-0" key={subCate_pd.id} xl={3} lg={3} md={3} sm={6} xs={6}>
+    <Link className="text-link" to={"/productdetails/"+subCate_pd.id} >
     <Card className="image-box card w-100">
     <Image className="center w-75" src={subCate_pd.image} />   
     <Card.Body> 
@@ -13,7 +15,8 @@ const mySubCateProducts = subCateProducts.map(subCate_pd =>
     <p className="product-price-on-card">Price :  {subCate_pd.special_price < subCate_pd.price && <del className='text-dark'>${subCate_pd.special_price}</del>}  $ {subCate_pd.special_price==='no' ? subCate_pd.subCate_pd:subCate_pd.price }</p>
     
     </Card.Body>
-    </Card>          
+    </Card>  
+    </Link>        
     </Col>
     )
 

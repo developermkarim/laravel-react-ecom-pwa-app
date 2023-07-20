@@ -14,7 +14,7 @@ class SuggestedProduct extends Component {
 
      <Row>
      <Col className="p-1" key={1} xl={2} lg={2} md={2} sm={4} xs={6}>
-          <Link to="/productdetails">
+          <Link className="text-link" to="/productdetails">
      <Card className="image-box card">
           <img className="center" src="https://rukminim1.flixcart.com/image/416/416/kn7sdjk0/mobile/q/j/x/c21-rmx3201-realme-original-imagfxfwbszrxkvu.jpeg?q=70" />   
           <Card.Body> 
