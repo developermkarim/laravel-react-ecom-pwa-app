@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component, Fragment } from 'react'
-import { Container,Row,Col } from 'react-bootstrap'
+import { Container,Row,Col, Breadcrumb } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import AppURL from '../../api/AppURL';
 
@@ -37,6 +38,14 @@ class Privacy extends Component {
           return (
                <Fragment>
                <Container>
+
+                    {/* Breadcumb Here  */}
+<div className="breadbody">
+<Breadcrumb>
+      <Breadcrumb.Item><Link  to="/">Home</Link></Breadcrumb.Item>
+      <Breadcrumb.Item> <Link  to="/privacy">Privacy</Link></Breadcrumb.Item>
+    </Breadcrumb>
+    </div>
                     <Row className="p-2">
             <Col className="shadow-sm bg-white mt-2" md={12} lg={12} sm={12} xs={12}>
     

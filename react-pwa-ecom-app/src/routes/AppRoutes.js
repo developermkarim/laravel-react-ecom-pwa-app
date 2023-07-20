@@ -19,7 +19,7 @@ class AppRoutes extends Component {
         return (
                 <Routes>
                    
-                   <Route path='/' element={<HomePage/>}/>
+                   <Route path='/' element={<HomePage key={Date.now()} />}/>
 
                    <Route path='/user-login' element={<UserLoginPage/>}/>
 

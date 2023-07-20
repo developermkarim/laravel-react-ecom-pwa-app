@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Contactcontroller;
 use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\Admin\ProductCartController;
 use App\Http\Controllers\Admin\ProductDetailsController;
 use App\Http\Controllers\Admin\ProductListController;
 use App\Http\Controllers\Admin\SiteInfoController;
@@ -50,6 +51,9 @@ Route::get('/product-details/{id}',[ProductDetailsController::class,'getProductD
 
 /* Notification Here */
 Route::get('/notification',[NotificationController::class,'getNotification']);
+
+// Product Cart Route
+Route::post('/addtocart',[ProductCartController::class, 'addToCart']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

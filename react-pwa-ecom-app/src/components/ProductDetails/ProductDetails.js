@@ -1,9 +1,10 @@
 import axios from 'axios'
 import React, { Component, Fragment } from 'react'
-import { Container,Row,Col, Image } from 'react-bootstrap'
+import { Container,Row,Col, Image, Breadcrumb } from 'react-bootstrap'
 import AppURL from '../../api/AppURL'
 import FeaturedLoading from '../PlaceHolder/FeaturedLoading'
 import  ReactDOM  from 'react-dom';
+import { Link } from 'react-router-dom'
 class ProductDetails extends Component {
 
      constructor(){
@@ -31,6 +32,14 @@ class ProductDetails extends Component {
                long_description:'',
                loaderDiv:'',
                mainDiv:'d-none',
+               cartColor:"",
+               cartSIze:"",
+               isColor:null,
+               isSize:null,
+               quantity:'',
+               productCode:null,
+               prevewImage:'0'
+
           }
      }
 
@@ -59,6 +68,14 @@ class ProductDetails extends Component {
             'long_description' =>  $ProductAllData['productDetails'][0], 
      */
 
+  /* colorConfirm Select Here */
+   colorConfirm=(ev)=>this.setState({cartColor:ev.target.value})
+
+   /* SizeConfirm Select Here */
+   sizeConfirm=(ev)=>this.setState({cartSIze:ev.target})
+ 
+     /* Product Quantity */
+     quantityOnChange=(ev)=>this.setState({quantity:ev.target.value})
 
 
       ImageOnClick=(event)=>{
@@ -71,9 +88,6 @@ class ProductDetails extends Component {
      componentDidMount(){
           axios.get(`${AppURL.BaseURL}/product-details/${this.props.getProductCode}`)
           .then(res=>{
-
-             
-
                this.setState({productsAll:res.data,
                title:res.data.title,
                brand:res.data.brand,
@@ -95,6 +109,7 @@ class ProductDetails extends Component {
                short_description:res.data.short_description,
                long_description:res.data.long_description,
                loaderDiv:'d-none',mainDiv:''
+
                
                })
           })
@@ -134,21 +149,62 @@ class ProductDetails extends Component {
                sizeDiv='';
           }
 
-          const priceOption =(price,special_price)=>{
-               if(price ==='na'){
+          const priceOption = (price,special_price) => {
+               if(price === 'na'){
                     return <p className="product-price-on-card"> Price : {price}$ </p>
                }else{
                     return <strike className='text-secondary'>Special Price : {special_price}</strike>
                }
           }
+
+
+/* Color Selection or not */
+
+      if(this.state.cartColor===null){
+          if(color !== 'na'){
+          this.setState({isColor:"YES"})
+     }else{}
+     this.setState({isSize:"NO"})
+}
+
+/* Color Selection or not */
+     if(this.state.cartSIze === null){
+          if(size !== 'na'){
+               this.setState({isSize:"YES"})
+          }else{
+               this.setState({isSize:"NO"})
+          }
+     }
+
+/*      this.state.cartSIze === null ? (size !== 'na' ? this.setState({isSize:"YES"}) : this.setState({isSize:"NO"})):this.setState({cartSIze:null}); */
+
+     /* Product Code Selection */
+     this.state.productCode === null ? this.setState({productCode:this.state.product_code}):this.setState({productCode:false});
+
           return (
                <Fragment>
-                  <div /* className={this.state.mainDiv} */>
 
-                 {/* <FeaturedLoading isLoading={this.state.loaderDiv}/> */}
+                  <div  /* className={this.state.mainDiv} */>
+
+                 {/*  <FeaturedLoading isLoading={this.state.loaderDiv}/> */}
 
                   <Container  className="BetweenTwoSection">
                    <Row className="p-2">
+
+{/* Breadcrumb Start Here  */}
+                   <div className="breadbody">
+               <Breadcrumb>
+  <Breadcrumb.Item> <Link to="/"> Home </Link> </Breadcrumb.Item>
+
+  <Breadcrumb.Item> <Link to={"/productbycategory/"+this.state.category}> {this.state.category} </Link> </Breadcrumb.Item> 
+
+  <Breadcrumb.Item> <Link to={"/productbysubcategory/"+this.state.category+"/"+this.state.subcategory}> {this.state.subcategory } </Link> </Breadcrumb.Item>
+
+    <Breadcrumb.Item> <Link to={"/product-details/"+this.state.product_id}> {this.state.title } </Link> </Breadcrumb.Item>   
+
+</Breadcrumb>
+</div>
+
 <Col className="shadow-sm bg-white pb-3 mt-4" md={12} lg={12} sm={12} xs={12}>
      <Row>
           <Col className="p-3" md={6} lg={6} sm={12} xs={12}>
