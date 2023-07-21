@@ -11,7 +11,11 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\VisitorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\AuthController;
 
+use App\Http\Controllers\User\ForgetController;
+use App\Http\Controllers\User\ResetController;
+use App\Http\Controllers\User\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,6 +26,26 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+ /////////////// User Login API Start ////////////////////////
+
+ // Login Routes 
+ Route::post('/user-login',[AuthController::class, 'Login']);
+
+ // Register Routes 
+Route::post('/register',[AuthController::class, 'Register']);
+
+ // Forget Password Routes 
+Route::post('/forgetpassword',[ForgetController::class, 'ForgetPassword']);
+
+ // Reset Password Routes 
+Route::post('/resetpassword',[ResetController::class, 'ResetPassword']);
+
+ // Current User Route 
+Route::get('/user-data',[UserController::class, 'User']);/* ->middleware('auth:api'); */
+
+
+ /////////////// End User Login API Start ////////////////////////
+
 /* Visitor API */
 
 Route::get('/getvisitor',[VisitorController::class,'GetVisitorDetails']);
@@ -43,6 +67,7 @@ Route::get('/productbycategory/{category}',[ProductListController::class,'produc
 
 Route::get('/productbysubcategory/{category}/{subcategory}',[ProductListController::class,'productBySubCategory']);
 
+Route::get('/product-search/{searchkey}',[ProductListController::class,'productBySearch']);
 /* Slider Route Here */
 Route::get('/getslider',[SliderController::class,'getSlider']);
 

@@ -6,7 +6,13 @@ import NavMenuMobile from '../components/common/NavMenuMobile';
 import UserLogin from '../components/common/UserLogin';
 
 export default class UserLoginPage extends Component {
+
+  componentDidMount(){
+    window.scroll(0,0)
+}
+
   render() {
+   
     return (
       <>
       
@@ -21,7 +27,7 @@ export default class UserLoginPage extends Component {
 
        {/* User Login Page Here */}
 
-               <UserLogin/>
+       <UserLogin user={this.props.user} setUserData={this.props.setUserData} /> 
 
               
                 <div className="Desktop">

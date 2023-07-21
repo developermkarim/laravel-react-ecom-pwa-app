@@ -12,7 +12,7 @@ export class Category extends Component {
     const CateByProducts = productbycategory.map((cate_pd)=>{
         
     return  <Col className="p-0" key={cate_pd.id} xl={3} lg={3} md={3} sm={6} xs={6}>
-      <Link className="text-link" to={"/productdetails/"+cate_pd.id} >
+      <Link className="text-link" to={"/product-details/"+cate_pd.id} >
         <Card className="image-box card w-100">
         <Image className="center w-75" src={cate_pd.image} />   
         <Card.Body> 

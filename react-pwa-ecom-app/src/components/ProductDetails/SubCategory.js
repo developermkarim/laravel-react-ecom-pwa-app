@@ -7,7 +7,7 @@ const SubCategory = ({category,subCategory,subCateProducts}) => {
 const mySubCateProducts = subCateProducts.map(subCate_pd =>
 
      <Col className="p-0" key={subCate_pd.id} xl={3} lg={3} md={3} sm={6} xs={6}>
-    <Link className="text-link" to={"/productdetails/"+subCate_pd.id} >
+    <Link className="text-link" to={"/product-details/"+subCate_pd.id} >
     <Card className="image-box card w-100">
     <Image className="center w-75" src={subCate_pd.image} />   
     <Card.Body> 

@@ -14,14 +14,55 @@ import AboutPage from '../pages/AboutPage';
 // import ProductCategoryPage from '../pages/ProductCategoryPage-main';
 import ProductCategoryPages from '../pages/ProductsCategoryPages';
 import ProductSubCategoryPage from '../pages/ProductSubCategoryPage';
+import ProductSearchpage from '../pages/ProductSearchpage';
+import RegisterPage from '../pages/RegisterPage';
+import ProfilePage from '../pages/ProfilePage';
+import ForgetPasswordPage from '../pages/ForgetPasswordPage';
+import ResetPasswordPage from '../pages/ResetPasswordPage';
+import axios from 'axios';
+import AppURL from '../api/AppURL';
+import NavMenuDesktop from '../components/common/NavMenuDesktop';
 class AppRoutes extends Component {
+
+    constructor(){
+        super();
+        this.state={
+            user:{},
+        }
+    }
+
+    componentDidMount(){
+        axios.get(AppURL.getUserData)
+        .then((res)=>{
+             this.setUserData(res.data);
+             console.log(res.data);
+        })
+        .catch(error=>{})
+
+    }
+
+    setUserData=(user)=>{
+        this.setState({user:user})
+    }
+
     render() {
+        // console.log(this.state.user.name);
         return (
+            <>
+            <NavMenuDesktop user={this.state.user} setUserData={this.setUserData} />
                 <Routes>
                    
                    <Route path='/' element={<HomePage key={Date.now()} />}/>
 
-                   <Route path='/user-login' element={<UserLoginPage/>}/>
+                   <Route path='/user-login'   element={<UserLoginPage user={this.state.user} setUserData={this.setUserData}  />}/>
+
+                   <Route path='/register' element={<RegisterPage  user={this.state.user} setUserData={this.setUserData} />}/>
+
+                   <Route  path='/profile' element={<ProfilePage user={this.state.user} setUserData={this.setUserData}  />}/>
+
+                   <Route path='/forget-password' element={<ForgetPasswordPage/>}/>
+
+                   <Route path='/reset-password' element={<ResetPasswordPage/>}/>
 
                    <Route path='/contact' element={<ContactPage/>}></Route>
 
@@ -34,6 +75,8 @@ class AppRoutes extends Component {
                    <Route path='/purchase' element={<PurchasePage/>}></Route>
 
                    <Route path='/product-details/:code' element={<ProductDetailsPage/>}></Route>
+
+                   <Route path='/product-search/:key' element={<ProductSearchpage/>}></Route>
 
                     
  
@@ -54,6 +97,8 @@ class AppRoutes extends Component {
                    <Route path='/cart' element={<CartPage/>}></Route>
 
                 </Routes>
+
+                </>
         );
     }
 }

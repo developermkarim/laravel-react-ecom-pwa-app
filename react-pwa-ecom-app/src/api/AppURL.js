@@ -7,6 +7,11 @@ class AppURL {
     static GetCategory = this.BaseURL + '/getcategory';
     static getSlider = this.BaseURL + '/getslider';
     static NotificationHistory = this.BaseURL+"/notification";
+
+    static getUserLogin = this.BaseURL + '/user-login';
+    static userRegister = this.BaseURL + '/register';
+    static getUserData = this.BaseURL + '/user-data';
+
     static productByRemark(remark){
         return `${this.BaseURL}/productlistbyremark/${remark}`;
     }
@@ -22,6 +27,10 @@ class AppURL {
 
     static getProductDetails(id){
         return `${this.BaseURL}/product-details/${id}`;
+    }
+
+    static getProductBySearch(searchKey){
+        return `${this.BaseURL}/product-search/${searchKey}`;
     }
 
 }
