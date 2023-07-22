@@ -12,6 +12,14 @@ class AppURL {
     static userRegister = this.BaseURL + '/register';
     static getUserData = this.BaseURL + '/user-data';
 
+    static forgetPassword = this.BaseURL + '/forget-password';
+
+    static resetPassword = this.BaseURL + '/reset-password';
+
+    
+
+    
+
     static productByRemark(remark){
         return `${this.BaseURL}/productlistbyremark/${remark}`;
     }

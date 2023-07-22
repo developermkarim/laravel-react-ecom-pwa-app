@@ -22,6 +22,7 @@ import ResetPasswordPage from '../pages/ResetPasswordPage';
 import axios from 'axios';
 import AppURL from '../api/AppURL';
 import NavMenuDesktop from '../components/common/NavMenuDesktop';
+import LogoutPage from '../pages/LogoutPage';
 class AppRoutes extends Component {
 
     constructor(){
@@ -62,7 +63,9 @@ class AppRoutes extends Component {
 
                    <Route path='/forget-password' element={<ForgetPasswordPage/>}/>
 
-                   <Route path='/reset-password' element={<ResetPasswordPage/>}/>
+                   <Route path='/reset-password/:token' element={<ResetPasswordPage/>}/>
+
+                   <Route path='/logout' element={<LogoutPage user={this.state.user} />}/>
 
                    <Route path='/contact' element={<ContactPage/>}></Route>
 

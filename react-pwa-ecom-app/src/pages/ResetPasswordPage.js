@@ -1,18 +1,15 @@
 import React, { Component, Fragment } from 'react'
+import { useParams } from 'react-router-dom'
 import FooterDesktop from '../components/common/FooterDesktop'
 import FooterMobile from '../components/common/FooterMobile'
 import NavMenuDesktop from '../components/common/NavMenuDesktop'
 import NavMenuMobile from '../components/common/NavMenuMobile'
 import ResetPassword from '../components/common/ResetPassword'
 
+ const ResetPasswordPage=()=> {
 
-class ResetPasswordPage extends Component {
+     const {token} = useParams();
 
-     componentDidMount(){
-          window.scroll(0,0)
-     }
-
-     render() {
           return (
               <Fragment> 
                <div className="Desktop">
@@ -23,7 +20,7 @@ class ResetPasswordPage extends Component {
                <NavMenuMobile />  
                </div>                       
 
-               <ResetPassword />  
+               <ResetPassword resetToken={token} />  
 
                <div className="Desktop">
                <FooterDesktop/>
@@ -35,7 +32,8 @@ class ResetPasswordPage extends Component {
 
           </Fragment>
           )
+
      }
-}
+
 
 export default ResetPasswordPage

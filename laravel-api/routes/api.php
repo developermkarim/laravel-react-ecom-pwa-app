@@ -35,10 +35,10 @@ use App\Http\Controllers\User\UserController;
 Route::post('/register',[AuthController::class, 'Register']);
 
  // Forget Password Routes 
-Route::post('/forgetpassword',[ForgetController::class, 'ForgetPassword']);
+Route::post('/forget-password',[ForgetController::class, 'ForgetPassword']);
 
  // Reset Password Routes 
-Route::post('/resetpassword',[ResetController::class, 'ResetPassword']);
+Route::post('/reset-password',[ResetController::class, 'ResetPassword']);
 
  // Current User Route 
 Route::get('/user-data',[UserController::class, 'User']);/* ->middleware('auth:api'); */
