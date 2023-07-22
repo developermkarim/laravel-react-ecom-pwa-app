@@ -2,9 +2,10 @@ import axios from 'axios'
 import React, { Component, Fragment } from 'react'
 import { Container,Row,Col, Image, Breadcrumb } from 'react-bootstrap'
 import AppURL from '../../api/AppURL'
-import FeaturedLoading from '../PlaceHolder/FeaturedLoading'
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 import  ReactDOM  from 'react-dom';
 import { Link } from 'react-router-dom'
+import InnerImageZoom from 'react-inner-image-zoom';
 class ProductDetails extends Component {
 
      constructor(){
@@ -192,6 +193,7 @@ class ProductDetails extends Component {
                    <Row className="p-2">
 
 {/* Breadcrumb Start Here  */}
+
                    <div className="breadbody">
                <Breadcrumb>
   <Breadcrumb.Item> <Link to="/"> Home </Link> </Breadcrumb.Item>
@@ -208,20 +210,34 @@ class ProductDetails extends Component {
 <Col className="shadow-sm bg-white pb-3 mt-4" md={12} lg={12} sm={12} xs={12}>
      <Row>
           <Col className="p-3" md={6} lg={6} sm={12} xs={12}>
-          <Image id='mainImage'  className="w-100 bigimage" src={this.state.image} />
+
+         {/*  <Image id='mainImage'  className="w-100 bigimage" src={this.state.image} /> */}
+               <div className='bigimage'>
+
+               
+         <InnerImageZoom src={this.state.image} zoomSrc={this.state.image} zoomScale={1.8} />
+
+         </div>
+
           <Container  className="my-3">
                <Row>
                     <Col className="p-0 m-0"  md={3} lg={3} sm={3} xs={3}>
+
                          <Image onClick={this.ImageOnClick} className="w-100 smallimage" src={this.state.image_one} />
+
                     </Col>
                     <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
+
                          <Image onClick={this.ImageOnClick} className="w-100 smallimage" src={this.state.image_two} />
                     </Col>
                     <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
+
                          <Image onClick={this.ImageOnClick} className="w-100 smallimage" src={this.state.image_three} />
                     </Col>
                     <Col className="p-0 m-0" md={3} lg={3} sm={3} xs={3}>
-                         <Image onClick={this.ImageOnClick} className="w-100 smallimage" src={this.state.image_four} />
+
+                  <Image onClick={this.ImageOnClick} className="w-100 smallimage" src={this.state.image_four} />
+
                     </Col>
                </Row> 
           </Container>
@@ -301,19 +317,17 @@ class ProductDetails extends Component {
 
           <p className=" p-0 m-0"><span className="Review-Title">Kazi Ariyan</span> <span className="text-success"><i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> </span> </p>
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-
-
           </Col>
      </Row>
-
 </Col>
-                   </Row>
-              
-               </Container>
+    </Row>      
+          </Container>
                 </div>
+
                </Fragment>
           )
      }
 }
+
 export default ProductDetails;
 

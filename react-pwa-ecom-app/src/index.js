@@ -10,6 +10,7 @@ import '../src/assets/css/animate.min.css';
 import '../src/assets/css/animate.min.css';
 import '../src/assets/css/placeholder-loading.min.css'
 import axios from 'axios';
+
     /* Default Url for Checking Token */
     axios.defaults.headers.common['Authorization']='Bearer '+localStorage.getItem('token')
 
