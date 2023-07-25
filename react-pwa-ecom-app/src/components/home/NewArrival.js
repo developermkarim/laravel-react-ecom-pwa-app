@@ -21,8 +21,8 @@ export default class NewArrival extends Component {
         }
     }
 
-    componentDidMount(){
-      axios.get(AppURL.productByRemark('NEW'))
+    async   componentDidMount(){
+     await axios.get(AppURL.productByRemark('NEW'))
       .then(res=>this.setState({NewArrivals:res.data,loaderDiv:'d-none',mainDiv:""}))
       .catch(err=>{
         toast.error("No New arraivals Products",{

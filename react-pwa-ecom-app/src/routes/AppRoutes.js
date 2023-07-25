@@ -11,7 +11,6 @@ import NotificationPage from '../pages/NotificationPage';
 import FavouritePage from '../pages/FavouritePage';
 import CartPage from '../pages/Cartpage';
 import AboutPage from '../pages/AboutPage';
-// import ProductCategoryPage from '../pages/ProductCategoryPage-main';
 import ProductCategoryPages from '../pages/ProductsCategoryPages';
 import ProductSubCategoryPage from '../pages/ProductSubCategoryPage';
 import ProductSearchpage from '../pages/ProductSearchpage';
@@ -23,8 +22,9 @@ import axios from 'axios';
 import AppURL from '../api/AppURL';
 import NavMenuDesktop from '../components/common/NavMenuDesktop';
 import LogoutPage from '../pages/LogoutPage';
-class AppRoutes extends Component {
 
+class AppRoutes extends Component {
+    
     constructor(){
         super();
         this.state={
@@ -81,6 +81,7 @@ class AppRoutes extends Component {
 
                    <Route path='/product-search/:key' element={<ProductSearchpage/>}></Route>
 
+                
                     
  
  {/*                 <Route path='/productbycategory/:category' element={<ProductCategoryPages />}/>  */}

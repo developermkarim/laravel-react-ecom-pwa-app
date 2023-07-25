@@ -17,18 +17,17 @@ class FeaturedProducts extends Component {
      }
 
      /* Fetching Data by API through componentDidMount() */
-     componentDidMount(){
-          axios.get(AppURL.productByRemark("FEATURED"))
+     async  componentDidMount(){
+        await  axios.get(AppURL.productByRemark("FEATURED"))
           .then((res)=>{
                this.setState({products:res.data,loaderDiv:"d-none",mainDiv:""})
           })
           .catch((error)=>{
-               console.log(error);
           })
      }
      render() {
           const productsAll = this.state.products;
-          console.log(productsAll);
+
           const productsView = productsAll.map((pd)=> 
            <Col className="p-1" key={pd.id} xl={2} lg={2} md={2} sm={4} xs={6}>
                <Link className="text-link" to={'/product-details/'+pd.id}>

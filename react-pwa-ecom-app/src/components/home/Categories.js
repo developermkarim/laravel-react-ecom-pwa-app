@@ -14,8 +14,8 @@ class Categories extends Component {
                mainDiv:"d-none",
           }
      }
-     componentDidMount(){
-          axios.get(AppURL.GetCategory)
+     async  componentDidMount(){
+         await axios.get(AppURL.GetCategory)
           .then(res=>this.setState({category:res.data,isLoading:"d-none",mainDiv:""}))
      }
     render() {

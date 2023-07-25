@@ -15,6 +15,10 @@ use Inertia\Inertia;
 |
 */
 
+Route::get('/admin/home',function(){
+    return view('admin.index');
+});
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),

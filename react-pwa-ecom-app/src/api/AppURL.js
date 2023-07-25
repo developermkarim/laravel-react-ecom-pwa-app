@@ -41,6 +41,15 @@ class AppURL {
         return `${this.BaseURL}/product-search/${searchKey}`;
     }
 
+    static getSuggestedProduct(relatedProductBySubCategory){
+        return `${this.BaseURL}/suggested-product/${relatedProductBySubCategory}`;
+    }
+
+    /* Product Reviews app URL */
+    static postProductWiseReviews = this.BaseURL + '/post-review';
+    static getProductWiseReview(productCode){
+    return `${this.BaseURL}/product-reviews/${productCode}`;
+    }
 }
 
 export default AppURL;

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import {Container,Row,Col,Card} from 'react-bootstrap'
 
-class CollectionLoading extends Component {
-     render() {
-          let isLoading = this.props.isLoading; 
+const CollectionLoading =({isLoading})=> {
+    
+        
 
           return (
                <div className={isLoading}>
@@ -147,6 +147,6 @@ class CollectionLoading extends Component {
                </div>
           )
      }
-}
+
 
 export default CollectionLoading

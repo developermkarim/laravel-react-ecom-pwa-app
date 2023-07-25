@@ -1,30 +1,53 @@
 import axios from 'axios';
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment, useEffect } from 'react'
+import { useState } from 'react';
 import { Card, Col, Container, Image, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import AppURL from '../../api/AppURL';
 import CollectionLoading from '../PlaceHolder/CollectionLoading';
-export default class Collection extends Component {
-  constructor(){
+const  Collection=()=> {
+/*   constructor(){
     super();
     this.state={
       collectionProducts:[],
       loaderDiv:"",
       mainDiv:"d-none"  
     }
-  }
+  } */
+  const [collectionProducts,SetcollectionProducts] = useState([]);
+  const [loaderDiv,SetloaderDiv] =  useState("");
+  const [mainDiv,SetmainDiv] =  useState("d-none");
 
-  componentDidMount(){
+
+ async function getData() {
+    const response =  await fetch(AppURL.productByRemark('COLLECTION'))
+    const data = await response.json();
+
+    console.log(data);
+    SetcollectionProducts(data)
+    SetloaderDiv("d-none");
+    SetmainDiv("")
+  }
+ getData();
+ /*  setTimeout(() => {
     axios.get(AppURL.productByRemark('COLLECTION'))
-    .then(res => this.setState({collectionProducts:res.data}) )
-    .catch( error => console.log(error)
-    )
+    .then(res => { 
+      SetcollectionProducts(res.data)
+      SetloaderDiv("d-none");
+      SetmainDiv("")
+    })
+    .catch( error => {
+      console.log(error)
+      SetloaderDiv("");
+      SetmainDiv("d-none")
+    })
+  }, 1000);
+ */
+  
 
-  }
+  
 
-  render() {
-
-    const allCollection = this.state.collectionProducts;
+    const allCollection = collectionProducts;
 
     const myCollections = allCollection.map(collection=>
 
@@ -45,9 +68,9 @@ export default class Collection extends Component {
     return (
         <Fragment>
           
-          <CollectionLoading/>
+          {/* <CollectionLoading isLoading={loaderDiv}/> */}
 
-          <div className={this.state.mainDiv}>
+          <div>
         <Container className="text-center" fluid={true}>
 <div className="section-title text-center mb-55"><h2> PRODUCT COLLECTION</h2>
 <p>Some Of Our Exclusive Collection, You May Like</p>
@@ -73,5 +96,7 @@ export default class Collection extends Component {
         </div>
    </Fragment>
     )
+
   }
-}
+
+export default Collection;

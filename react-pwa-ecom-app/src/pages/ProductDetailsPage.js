@@ -31,7 +31,7 @@ const ProductDetailsPage=()=> {
               <ProductDetails getProductCode={code}/>
  
 
-              <SuggestedProduct/>
+             
 
               
                 <div className="Desktop">

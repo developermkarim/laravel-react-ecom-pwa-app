@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ProductListController;
 use App\Http\Controllers\Admin\SiteInfoController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\VisitorController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\AuthController;
@@ -68,17 +69,33 @@ Route::get('/productbycategory/{category}',[ProductListController::class,'produc
 Route::get('/productbysubcategory/{category}/{subcategory}',[ProductListController::class,'productBySubCategory']);
 
 Route::get('/product-search/{searchkey}',[ProductListController::class,'productBySearch']);
-/* Slider Route Here */
-Route::get('/getslider',[SliderController::class,'getSlider']);
+
+/* Similar Product Here */
+Route::get('/suggested-product/{sub_category}',[ProductListController::class,'similarProduct']);
 
 /* ProductDetails Here */
 Route::get('/product-details/{id}',[ProductDetailsController::class,'getProductDetails']);
 
+/* Slider Route Here */
+Route::get('/getslider',[SliderController::class,'getSlider']);
 /* Notification Here */
 Route::get('/notification',[NotificationController::class,'getNotification']);
 
 // Product Cart Route
 Route::post('/addtocart',[ProductCartController::class, 'addToCart']);
+
+/* Product Reviews Rotue Here */
+
+// Post Product Review Route
+Route::post('/post-review',[ReviewController::class, 'postReviews']);
+
+// Review Product Route
+Route::get('/product-reviews/{product_code}',[ReviewController::class, 'productWiseReview']);
+
+
+
+
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

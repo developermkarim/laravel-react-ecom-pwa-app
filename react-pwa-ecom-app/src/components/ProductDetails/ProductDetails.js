@@ -3,9 +3,10 @@ import React, { Component, Fragment } from 'react'
 import { Container,Row,Col, Image, Breadcrumb } from 'react-bootstrap'
 import AppURL from '../../api/AppURL'
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
-import  ReactDOM  from 'react-dom';
 import { Link } from 'react-router-dom'
 import InnerImageZoom from 'react-inner-image-zoom';
+import SuggestedProduct from './SuggestedProduct';
+import ReviewList from './ReviewList';
 class ProductDetails extends Component {
 
      constructor(){
@@ -81,13 +82,14 @@ class ProductDetails extends Component {
 
       ImageOnClick=(event)=>{
           let imgSrc = event.target.getAttribute('src');
-          let mainImage = document.getElementById('mainImage');
-          ReactDOM.findDOMNode(mainImage).setAttribute('src',imgSrc);
+          this.setState({prevewImage:imgSrc})
+        /*   let mainImage = document.getElementById('mainImage');
+          ReactDOM.findDOMNode(mainImage).setAttribute('src',imgSrc); */
        }
 
 
-     componentDidMount(){
-          axios.get(`${AppURL.BaseURL}/product-details/${this.props.getProductCode}`)
+       async  componentDidMount(){
+         await axios.get(`${AppURL.BaseURL}/product-details/${this.props.getProductCode}`)
           .then(res=>{
                this.setState({productsAll:res.data,
                title:res.data.title,
@@ -117,6 +119,11 @@ class ProductDetails extends Component {
           .catch(err=>console.log(err.message));
      }
      render(){
+
+          /* Zoom Image Here */
+          if(this.state.prevewImage==='0'){
+               this.setState({prevewImage:this.state.image})
+          }
 
           let color = this.state.color;
           var colorDiv = "d-none";
@@ -215,7 +222,7 @@ class ProductDetails extends Component {
                <div className='bigimage'>
 
                
-         <InnerImageZoom src={this.state.image} zoomSrc={this.state.image} zoomScale={1.8} />
+         <InnerImageZoom className='detailimage' src={this.state.prevewImage} zoomSrc={this.state.prevewImage} zoomScale={1.8} zoomType={"hover"}/>
 
          </div>
 
@@ -312,17 +319,21 @@ class ProductDetails extends Component {
 
           <Col className="" md={6} lg={6} sm={12} xs={12}>
           <h6 className="mt-2">REVIEWS</h6>
-          <p className=" p-0 m-0"><span className="Review-Title">Kazi Ariyan</span> <span className="text-success"><i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> </span> </p>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+         
 
-          <p className=" p-0 m-0"><span className="Review-Title">Kazi Ariyan</span> <span className="text-success"><i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> </span> </p>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+         <ReviewList productReview={this.state.product_code}></ReviewList>
+
+{/*           <p className=" p-0 m-0"><span className="Review-Title">Kazi Ariyan</span> <span className="text-success"><i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> <i className="fa fa-star"></i> </span> </p>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p> */}
+
           </Col>
      </Row>
 </Col>
     </Row>      
           </Container>
                 </div>
+
+                <SuggestedProduct subcategory={this.state.subcategory}/>
 
                </Fragment>
           )
