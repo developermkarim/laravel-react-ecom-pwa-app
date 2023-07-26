@@ -43,7 +43,7 @@
 
       
 
-        @yield('content')
+	@yield('admin')
 
 
         <!--start overlay-->

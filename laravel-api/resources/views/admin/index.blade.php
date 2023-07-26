@@ -1,6 +1,6 @@
        @extends('admin.admin_master')
 
-       @section('content')
+       @section('admin')
        <!--start page wrapper -->
         <div class="page-wrapper">
             <div class="page-content">

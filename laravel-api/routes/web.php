@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -18,6 +19,24 @@ use Inertia\Inertia;
 Route::get('/admin/home',function(){
     return view('admin.index');
 });
+
+Route::get('/admin/login',function(){
+    return view('auth.login');
+});
+
+Route::prefix('/admin')->name('admin.')->controller(AdminController::class)->group(function(){
+
+    Route::get('/logout','adminLogout')->name('logout');
+
+    Route::get('/profile','adminProfile')->name('profile');
+
+    Route::post('/profile-store','profileStore')->name('profile.store');
+});
+
+
+
+
+
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
