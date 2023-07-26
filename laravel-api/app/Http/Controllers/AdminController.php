@@ -37,8 +37,13 @@ class AdminController extends Controller
             $admin->profile_photo_path = $fileName;
         }
 
+        $notification = [
+            'message'=>"Admin Profile Updated Successfully",
+            'alert-type'=>"success"
+        ];
         if($admin->save()){
-            return redirect()->route('admin.profile');
+
+            return redirect()->route('admin.profile')->with($notification);
         }
     }
 }
