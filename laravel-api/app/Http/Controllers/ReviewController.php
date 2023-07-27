@@ -37,8 +37,8 @@ class ReviewController extends Controller
 
     public function getAllReviews(Request $request)
     {
-        $allReviews = ProductReview::latest()->get();
+        $review = ProductReview::latest()->get();
         // return $allReviews;
-        return view('backend.review.review_all',compact('allReviews'));
+        return view('backend.review.review_all',compact('review'));
     }
 }

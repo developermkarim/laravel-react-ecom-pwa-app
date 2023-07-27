@@ -20,10 +20,10 @@
             </a>
         </li>
 
-         
-         
+
+
         <li class="menu-label">UI Elements</li>
-         
+
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
@@ -41,6 +41,85 @@
                 </li>
             </ul>
         </li>
+
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
+                </div>
+                <div class="menu-title">Category</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('category.all') }}"><i class="bx bx-right-arrow-alt"></i>All Category</a>
+                </li>
+                <li> <a href="{{ route('category.add') }}"><i class="bx bx-right-arrow-alt"></i>Add Category </a>
+                </li>
+
+            </ul>
+        </li>
+
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+                </div>
+                <div class="menu-title">Sub Category</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('all.subcategory') }}"><i class="bx bx-right-arrow-alt"></i>All SubCategory</a>
+                </li>
+                <li> <a href="{{ route('add.subcategory') }}"><i class="bx bx-right-arrow-alt"></i>Add SubCategory</a>
+                </li>
+
+            </ul>
+        </li>
+
+
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="bx bx-repeat"></i>
+                </div>
+                <div class="menu-title">Slider</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('all.slider') }}"><i class="bx bx-right-arrow-alt"></i>All Slider</a>
+                </li>
+                <li> <a href="{{ route('add.slider') }}"><i class="bx bx-right-arrow-alt"></i>Add Slider</a>
+                </li>
+                 
+            </ul>
+        </li>
+        
+
+        <li>
+            <a href="{{ route('contact.message') }}">
+                <div class="parent-icon"><i class="bx bx-donate-blood"></i>
+                </div>
+                <div class="menu-title">Contact Message</div>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ route('all.review') }}">
+                <div class="parent-icon"><i class="bx bx-donate-blood"></i>
+                </div>
+                <div class="menu-title">Product Review</div>
+            </a>
+        </li>
+    
+
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"> <i class="bx bx-donate-blood"></i>
+                </div>
+                <div class="menu-title">Site Info </div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('getsite.info') }}"><i class="bx bx-right-arrow-alt"></i>Get Site Info</a>
+                </li>
+                 
+            </ul>
+        </li>
+
+{{-- 
         <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
@@ -72,7 +151,8 @@
                 </li>
                 <li> <a href="component-paginations.html"><i class="bx bx-right-arrow-alt"></i>Pagination</a>
                 </li>
-                <li> <a href="component-popovers-tooltips.html"><i class="bx bx-right-arrow-alt"></i>Popovers & Tooltips</a>
+                <li> <a href="component-popovers-tooltips.html"><i class="bx bx-right-arrow-alt"></i>Popovers &
+                        Tooltips</a>
                 </li>
                 <li> <a href="component-progress-bars.html"><i class="bx bx-right-arrow-alt"></i>Progress</a>
                 </li>
@@ -83,7 +163,7 @@
                 <li> <a href="component-avtars-chips.html"><i class="bx bx-right-arrow-alt"></i>Avatrs & Chips</a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
         <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-repeat"></i>
@@ -155,8 +235,8 @@
                 </li>
             </ul>
         </li>
-         
-         
+
+
         <li>
             <a href="https://themeforest.net/user/codervent" target="_blank">
                 <div class="parent-icon"><i class="bx bx-support"></i>

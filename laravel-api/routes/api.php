@@ -54,7 +54,7 @@ Route::get('/getvisitor',[VisitorController::class,'GetVisitorDetails']);
 Route::post('/getcontact',[Contactcontroller::class,'getContact']);
 
 /* Contact API */
-Route::get('/getsiteinfo',[SiteInfoController::class,'getSiteInfo']);
+Route::get('/getsiteinfo',[SiteInfoController::class,'getAllSiteInfo']);
 
 /* Category and SubCategory  */
 Route::get('/getcategory',[CategoryController::class,'getCategory']);
