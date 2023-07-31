@@ -35,7 +35,7 @@ class ReviewController extends Controller
 
     }
 
-    public function getAllReviews(Request $request)
+    public function GetAllReview(Request $request)
     {
         $review = ProductReview::latest()->get();
         // return $allReviews;
