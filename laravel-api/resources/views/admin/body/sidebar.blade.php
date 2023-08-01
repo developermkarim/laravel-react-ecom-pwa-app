@@ -87,6 +87,21 @@
                  
             </ul>
         </li>
+
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="bx bx-repeat"></i>
+                </div>
+                <div class="menu-title">Product</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('product.all') }}"><i class="bx bx-right-arrow-alt"></i>All Products</a>
+                </li>
+                <li> <a href="{{ route('product.add') }}"><i class="bx bx-right-arrow-alt"></i> Add Products </a>
+                </li>
+                 
+            </ul>
+        </li>
         
 
         <li>
@@ -118,6 +133,27 @@
                  
             </ul>
         </li>
+
+        <li class="menu-label">Customer Order</li>
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class='bx bx-message-square-edit'></i>
+                </div>
+                <div class="menu-title">Manage Order</div>
+            </a>
+
+            <ul>
+                <li> <a href="{{ route('pending.order') }}"><i class="bx bx-right-arrow-alt"></i>Pending Order </a>
+                </li>
+                <li> <a href="{{ route('processing.order') }}"><i class="bx bx-right-arrow-alt"></i>Processing Order</a>
+                </li>
+                <li> <a href="{{ route('complete.order') }}"><i class="bx bx-right-arrow-alt"></i>Complete Order</a>
+                </li>
+             
+                 
+            </ul>
+        </li>
+         
 
 {{-- 
         <li>

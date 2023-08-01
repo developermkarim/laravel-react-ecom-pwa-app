@@ -84,6 +84,9 @@ Route::get('/notification',[NotificationController::class,'getNotification']);
 // Product Cart Route
 Route::post('/addtocart',[ProductCartController::class, 'addToCart']);
 
+// Product Cart Route
+Route::post('/cartorder',[ProductCartController::class, 'cartOrder']);
+
 /* Product Reviews Rotue Here */
 
 // Post Product Review Route

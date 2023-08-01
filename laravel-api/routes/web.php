@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Contactcontroller;
+use App\Http\Controllers\Admin\ProductCartController;
+use App\Http\Controllers\Admin\ProductListController;
 use App\Http\Controllers\Admin\SiteInfoController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\AdminController;
@@ -71,6 +73,25 @@ Route::prefix('/category')->name('category.')->controller(CategoryController::cl
     Route::get('/delete/{id}',[CategoryController::class, 'DeleteSubCategory'])->name('subcategory.delete');
     });
     
+    /* Product Route Here */
+    Route::prefix('/product')->name('product.')->controller(ProductListController::class)->group(function(){
+
+        Route::get('/all-product','getAllProducts')->name('all');
+        Route::get('/add-product','addProduct')->name('add');
+        Route::post('/store-product','storeProduct')->name('store');
+
+
+        Route::get('/edit-product/{id}','editProduct')->name('edit');
+
+        Route::post('/update-product/{id}','updateProduct')->name('update');
+
+        Route::get('/delete-product/{id}','deleteProduct')->name('delete');
+
+    });
+
+
+
+
     /* Home Page Slider Route Here */
 
     Route::prefix('slider')->controller(SliderController::class)->group(function(){
@@ -101,6 +122,23 @@ Route::get('/all/review',[ReviewController::class, 'GetAllReview'])->name('all.r
 Route::get('/getsite/info',[SiteInfoController::class, 'GetSiteInfo'])->name('getsite.info');
 
 Route::post('/update/siteinfo',[SiteInfoController::class, 'UpdateSiteInfo'])->name('update.siteinfo');
+
+Route::prefix('order')->group(function(){
+
+    Route::get('/pending',[ProductCartController::class, 'PendingOrder'])->name('pending.order');
+    
+    Route::get('/processing',[ProductCartController::class, 'ProcessingOrder'])->name('processing.order');
+    
+    Route::get('/complete',[ProductCartController::class, 'CompleteOrder'])->name('complete.order');
+    
+    Route::get('/details/{id}',[ProductCartController::class, 'OrderDetails'])->name('order.details');
+    
+    Route::get('/status/processing/{id}',[ProductCartController::class, 'PendingToProcessing'])->name('pending.processing');
+    
+    Route::get('/status/complete/{id}',[ProductCartController::class, 'ProcessingToComplete'])->name('processing.complete');
+    
+     
+    });
 
 
 Route::get('/', function () {

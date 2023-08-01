@@ -104,7 +104,7 @@ class ProductCartController extends Controller
         $cartList = ProductCart::where('email',$email)->get();
 
         foreach($cartList as $cartListItem){
-            $cartInsertDelete = '';
+            $cartInsertDelete = "";
             $cartOrderts = DB::table('cart_orders')->insert([
                 'invoice_no'=>  'mkpd' . $invoice_no,
                 'product_name'=> $cartListItem['product_name'],
@@ -137,6 +137,7 @@ class ProductCartController extends Controller
             }
 
         }
+        
         return $cartInsertDelete;
 
     }
@@ -149,7 +150,7 @@ class ProductCartController extends Controller
 
     public function orderDetails($id)
     {
-        $orderDetails = DB::table('cart_order')->wherel('id',$id)->first();
+        $order = DB::table('cart_orders')->where('id',$id)->first();
         return view('backend.orders.order_details',compact('order'));
     }
 
